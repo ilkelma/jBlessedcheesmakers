@@ -9,6 +9,7 @@ import play.data.validation.*;
 
 @Entity
 class Cheese extends Model {
+	
 	@Id
 	@Constraints.Min(10)
 	public Long id;
@@ -27,7 +28,7 @@ class Cheese extends Model {
 	public String cheeseStyle;
 	public String recipeSource;
 	public String coagulant;
-	public String 
+	public String bacteria;
 
 	public static Finder<Long,Cheese> find = 
 			new Finder<Long,Cheese>(Long.class, Cheese.class);
