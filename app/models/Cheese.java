@@ -16,9 +16,7 @@ class Cheese extends Model {
 
 	@Constraints.Required
 	public String name;
-
 	public boolean finished;
-
 	@Formats.DateTime(pattern="dd/MM/yyyy")
 	public Date startDate;
 

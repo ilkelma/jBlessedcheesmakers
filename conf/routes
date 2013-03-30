@@ -5,5 +5,33 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+# Login page
+GET		/login 						controllers.Application.login()
+POST	/login   					controllers.Application.authenticate()
+
+# Profile routes - JSON-able
+GET		/user						controllers.Profiles.index()
+GET		/user/:id 					controllers.Profiles.getById()
+POST	/user/:id 					controllers.Profiles.new()
+PUT		/user/:id 					controllers.Profiles.update()
+DELETE	/user/:id 					controllers.Profiles.delete()
+
+# Cheese routes - JSON-able
+GET		/cheese						controllers.Cheeses.index()
+GET		/cheese/:id 				controllers.Cheeses.getById()
+POST	/cheese/:id 				controllers.Cheeses.new()
+PUT		/cheese/:id 				controllers.Cheeses.update()
+DELETE	/cheese/:id 				controllers.Cheeses.delete()
+
+# Cave routes - JSON-able
+GET		/cave						controllers.Caves.index()
+GET		/cave/:id 					controllers.Caves.getById()
+GET     /cave/:id/cheeses			controllers.Caves.allCheesesInCave()
+POST	/cave/:id 					controllers.Caves.new()
+POST	/cave/:id/:cheeseId			controllers.Caves.addCheeseToCave()
+PUT		/cave/:id 					controllers.Caves.update()
+DELETE	/cave/:id 					controllers.Caves.delete()
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
