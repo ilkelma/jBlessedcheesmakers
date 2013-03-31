@@ -16,7 +16,7 @@ public class Cheeses extends Controller {
 
     public static Result getById(Long id) {
     	if(request().accepts("application/json")) {
-    		JsonNode result = Json.parse("{ id: " + id + "}");
+    		JsonNode result = Json.parse("{ \"id\": " + id + "}");
     		return ok(result);
     	} else {
     		return ok("You asked for this Cheese: " + id);

@@ -9,7 +9,7 @@ import play.data.validation.*;
 import com.avaje.ebean.*;
 
 @Entity
-class Cheese extends Model {
+public class Cheese extends Model {
 	
 	@Id
 	@Constraints.Min(10)
@@ -31,5 +31,9 @@ class Cheese extends Model {
 
 	public static Finder<Long,Cheese> find = 
 			new Finder<Long,Cheese>(Long.class, Cheese.class);
+
+	public Cheese(String name) {
+		this.name = name;
+	}
 
 }
