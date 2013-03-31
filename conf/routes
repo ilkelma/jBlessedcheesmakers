@@ -11,26 +11,26 @@ POST	/login   					controllers.Application.authenticate()
 
 # Profile routes - JSON-able
 GET		/user						controllers.Profiles.index()
-GET		/user/:id 					controllers.Profiles.getById()
-POST	/user/:id 					controllers.Profiles.new()
-PUT		/user/:id 					controllers.Profiles.update()
-DELETE	/user/:id 					controllers.Profiles.delete()
+GET		/user/:id 					controllers.Profiles.getById(id: Long)
+POST	/user/ 						controllers.Profiles.create()
+PUT		/user/:id 					controllers.Profiles.update(id: Long)
+DELETE	/user/:id 					controllers.Profiles.delete(id: Long)
 
 # Cheese routes - JSON-able
 GET		/cheese						controllers.Cheeses.index()
-GET		/cheese/:id 				controllers.Cheeses.getById()
-POST	/cheese/:id 				controllers.Cheeses.new()
-PUT		/cheese/:id 				controllers.Cheeses.update()
-DELETE	/cheese/:id 				controllers.Cheeses.delete()
+GET		/cheese/:id 				controllers.Cheeses.getById(id: Long)
+POST	/cheese/	 				controllers.Cheeses.create()
+PUT		/cheese/:id 				controllers.Cheeses.update(id: Long)
+DELETE	/cheese/:id 				controllers.Cheeses.delete(id: Long)
 
 # Cave routes - JSON-able
 GET		/cave						controllers.Caves.index()
-GET		/cave/:id 					controllers.Caves.getById()
-GET     /cave/:id/cheeses			controllers.Caves.allCheesesInCave()
-POST	/cave/:id 					controllers.Caves.new()
-POST	/cave/:id/:cheeseId			controllers.Caves.addCheeseToCave()
-PUT		/cave/:id 					controllers.Caves.update()
-DELETE	/cave/:id 					controllers.Caves.delete()
+GET		/cave/:id 					controllers.Caves.getById(id: Long)
+GET     /cave/:id/cheeses			controllers.Caves.allCheesesInCave(id: Long)
+POST	/cave/ 						controllers.Caves.create()
+POST	/cave/:id/:cheeseId			controllers.Caves.addCheeseToCave(id: Long, cheeseId: Long)
+PUT		/cave/:id 					controllers.Caves.update(id: Long)
+DELETE	/cave/:id 					controllers.Caves.delete(id: Long)
 
 
 # Map static resources from the /public folder to the /assets URL path
