@@ -1,0 +1,102 @@
+# Users
+
+users:
+
+    - &me !!models.User
+        email:       aknight@gmail.com
+        name:        Andy
+        password:    password
+
+    - &admin !!models.User
+        email:       admin@kcina.net
+        name:        Administrator
+        password:    password
+
+    - &bob !!models.User
+        email:       bob@kcina.net
+        name:        Bob
+        password:    password
+
+# Caves
+
+caves:
+
+    - &mecave1 !!models.Cave
+        id:             12
+        name:           Dorm Fridge with Bowl
+        owner:          *me 
+
+    - &mecave2 !!models.Cave
+        id:             13
+        name:           Main Fridge
+        owner:          *me 
+
+    - &bobcave !!models.Cave
+        id:             14
+        name:           Main Cellar
+        owner:          *bob 
+
+# Cheeses
+
+cheeses:
+
+    - !!models.Cheese
+        id:             11
+        name:           First Queso Blanco
+        finished:       true
+        startDate:      2012-11-23
+        user:           *me
+        cheeseStyle:    Queso Blanco
+        recipeSource:   Cheeselady Book
+        coagulant:      Vinegar
+
+    - !!models.Cheese
+        id:             12
+        name:           February Feta
+        finished:       true
+        startDate:      2013-02-05
+        finishDate:     2013-03-01
+        cave:           *mecave1
+        user:           *me
+        cheeseStyle:    Feta
+        recipeSource:   Cheeselady Book
+        coagulant:      Vegetable Rennet
+        inoculant:      Mesophilic
+
+    - !!models.Cheese
+        id:             13
+        name:           Parmiggiano
+        finished:       false
+        startDate:      2013-01-23
+        agingTime:      1 Year
+        cave:           *bobcave
+        user:           *bob
+        cheeseStyle:    Parmesan
+        recipeSource:   Cheeselady Book
+        coagulant:      Calf Rennet
+        inoculant:      Thermophilic
+
+    - !!models.Cheese
+        id:             19
+        name:           Five Year Gruyère
+        finished:       false
+        startDate:      2010-11-23
+        agingTime:      Five Years
+        cave:           *bobcave
+        user:           *bob
+        cheeseStyle:    Gruyère
+        recipeSource:   Cheeselady Book
+        coagulant:      Vinegar
+        inoculant:      Thermophilic
+
+    - !!models.Cheese
+        id:             55
+        name:           Groovy Goat
+        finished:       true
+        startDate:      2013-03-23
+        cave:           *mecave2
+        user:           *me
+        cheeseStyle:    Chèvre
+        recipeSource:   Cheeselady Book
+        coagulant:      Microbial Rennet
+        inoculant:      Mesophilic

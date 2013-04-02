@@ -20,14 +20,22 @@ public class Cheese extends Model {
 	public boolean finished;
 	@Formats.DateTime(pattern="dd/MM/yyyy")
 	public Date startDate;
+	@Formats.DateTime(pattern="dd/MM/yyyy")
+	public Date finishDate;
+	public String agingTime;
+
 
 	@OneToOne
 	public Cave cave;
+	@OneToOne
+	@Constraints.Required
+	public User user;
 
 	public String cheeseStyle;
 	public String recipeSource;
 	public String coagulant;
-	public String bacteria;
+	public String inoculant;
+	public String milkType;
 
 	public static Finder<Long,Cheese> find = 
 			new Finder<Long,Cheese>(Long.class, Cheese.class);

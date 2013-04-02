@@ -16,12 +16,12 @@ public class Caves extends Controller {
         return ok("Caves Index!");
     }
 
-    public static Result getById(Long id) {
+    public static Result getById(Long cave) {
     	if(request().accepts("application/json")) {
-    		JsonNode result = Json.parse("{ id: " + id + "}");
+    		JsonNode result = Json.parse("{ id: " + cave + "}");
     		return ok(result);
     	} else {
-    		return ok("You asked for this Cave: " + id);
+    		return ok("You asked for this Cave: " + cave);
     	}
     }
 
@@ -29,19 +29,19 @@ public class Caves extends Controller {
     	return new Results.Todo();
     }
   	
-    public static Result update(Long id) {
+    public static Result update(Long cave) {
     	return new Results.Todo();
     }
 
-    public static Result delete(Long id) {
+    public static Result delete(Long cave) {
     	return new Results.Todo();
     }
 
-    public static Result allCheesesInCave(Long id) {
+    public static Result allCheesesInCave(Long cave) {
     	return new Results.Todo();
     }
 
-    public static Result addCheeseToCave(Long id, Long cheeseId) {
+    public static Result addCheeseToCave(Long cave, Long cheese) {
     	return new Results.Todo();
     }
 }

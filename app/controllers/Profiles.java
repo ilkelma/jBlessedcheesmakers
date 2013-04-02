@@ -14,12 +14,12 @@ public class Profiles extends Controller {
         return ok("Profiles Index!");
     }
 
-    public static Result getById(Long id) {
+    public static Result getById(Long user) {
     	if(request().accepts("application/json")) {
-    		JsonNode result = Json.parse("{ id: " + id + "}");
+    		JsonNode result = Json.parse("{ id: " + user + "}");
     		return ok(result);
     	} else {
-    		return ok("You asked for this User: " + id);
+    		return ok("You asked for this User: " + user);
     	}
     }
 
@@ -27,11 +27,11 @@ public class Profiles extends Controller {
     	return new Results.Todo();
     }
   	
-    public static Result update(Long id) {
+    public static Result update(Long user) {
     	return new Results.Todo();
     }
 
-    public static Result delete(Long id) {
+    public static Result delete(Long user) {
     	return new Results.Todo();
     }
   

@@ -15,11 +15,15 @@ create table cheese (
   name                      varchar(255),
   finished                  boolean,
   start_date                timestamp,
+  finish_date               timestamp,
+  aging_time                varchar(255),
   cave_id                   bigint,
+  user_email                varchar(255),
   cheese_style              varchar(255),
   recipe_source             varchar(255),
   coagulant                 varchar(255),
-  bacteria                  varchar(255),
+  inoculant                 varchar(255),
+  milk_type                 varchar(255),
   constraint pk_cheese primary key (id))
 ;
 
@@ -40,6 +44,8 @@ alter table cave add constraint fk_cave_owner_1 foreign key (owner_email) refere
 create index ix_cave_owner_1 on cave (owner_email);
 alter table cheese add constraint fk_cheese_cave_2 foreign key (cave_id) references cave (id) on delete restrict on update restrict;
 create index ix_cheese_cave_2 on cheese (cave_id);
+alter table cheese add constraint fk_cheese_user_3 foreign key (user_email) references user (email) on delete restrict on update restrict;
+create index ix_cheese_user_3 on cheese (user_email);
 
 
 
