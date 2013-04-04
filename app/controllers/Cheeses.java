@@ -22,7 +22,7 @@ public class Cheeses extends Controller {
         		JsonNode result = Json.toJson(foundCheese);
                 return ok(result);
         	} else {
-        		return ok("You asked for this Cheese: " + foundCheese.getName());
+        		return ok("You asked for this Cheese: " + foundCheese.name);
         	}
         } else {
             return badRequest("Sorry sir, we're out of that cheese (Monty Python)");

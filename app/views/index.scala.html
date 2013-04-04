@@ -1,7 +1,32 @@
-@(message: String)
+@(message: String, loggedIn: Boolean)
 
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message, style = "Java")
+@main(message, loggedIn) {
+	
+	  <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>@message</h1>
+        <p>Welcome to the site for all manufacturers of dairy products! Click any of the links in the sections below to get started if you've already logged in or click the link below to register! </p>
+        <p><a href="#" class="btn btn-primary btn-large">Register &raquo;</a></p>
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row function-callout">
+        <div class="span4">
+          <h2>Users</h2>
+          <p>Here you can look at your profile and browse other users' cheeses and caves (that they've made public) for inspiration and the sake of community. After all, we must
+          support our fellow manufacturers of dairy products. </p>
+          <p><a class="btn" href="@routes.Profiles.index">View details &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Cheeses</h2>
+          <p>Here is the heart of the application. Add your new cheeses here in all their splendid details - or relive past glories by viewing cheeses you've created! </p>
+          <p><a class="btn" href="@routes.Cheeses.index">View details &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Caves</h2>
+          <p>Add or edit your cheese "caves". Not necessarily an actual cave, but wherever you choose to let your cheeses age and practice the subtle art of <em>affinage</em>. </p>
+          <p><a class="btn" href="@routes.Caves.index">View details &raquo;</a></p>
+        </div>
+      </div>
     
 }

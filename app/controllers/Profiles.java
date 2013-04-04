@@ -14,7 +14,7 @@ public class Profiles extends Controller {
         return ok("Profiles Index!");
     }
 
-    public static Result getById(Long user) {
+    public static Result getByEmail(String user) {
     	if(request().accepts("application/json")) {
     		JsonNode result = Json.parse("{ id: " + user + "}");
     		return ok(result);
@@ -27,11 +27,11 @@ public class Profiles extends Controller {
     	return new Results.Todo();
     }
   	
-    public static Result update(Long user) {
+    public static Result update(String user) {
     	return new Results.Todo();
     }
 
-    public static Result delete(Long user) {
+    public static Result delete(String user) {
     	return new Results.Todo();
     }
   

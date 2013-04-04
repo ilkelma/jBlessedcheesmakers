@@ -10,7 +10,8 @@ import models.*;
 public class Application extends Controller {
   
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return ok(index.render("Blessed are the Cheesemakers", 
+                    session("email") != null ? true : false));
     }
     
     public static class Login {
@@ -60,9 +61,16 @@ public class Application extends Controller {
         session().clear();
         flash("success", "You've been logged out");
         return redirect(
-            routes.Application.login()
+            routes.Application.index()
         );
     }
-  
+    
+    public static Result about() {
+        return new Results.Todo();
+    }
+
+    public static Result contact() {
+        return new Results.Todo();
+    }
   
 }

@@ -17,12 +17,17 @@ public class Caves extends Controller {
     }
 
     public static Result getById(Long cave) {
-    	if(request().accepts("application/json")) {
-    		JsonNode result = Json.parse("{ id: " + cave + "}");
-    		return ok(result);
-    	} else {
-    		return ok("You asked for this Cave: " + cave);
-    	}
+        Cave foundCave = Cave.find.byId(cave);
+        if(foundCave != null) {
+        	if(!request().accepts("text/html") && request().accepts("application/json")) {
+        		JsonNode result = Json.toJson(foundCave);
+        		return ok(result);
+        	} else {
+        		return ok("You asked for this Cave: " + foundCave.name);
+        	}
+        } else {
+            return badRequest("The Cave of Caerbannog! Oh. Not the Cave you wanted? Maybe try again?");
+        }
     }
 
     public static Result create() {

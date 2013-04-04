@@ -4,6 +4,8 @@
 
 # Home page
 GET     /                           controllers.Application.index()
+GET 	/about						controllers.Application.about()
+GET 	/contact					controllers.Application.contact()
 
 # Login page
 GET		/login 						controllers.Application.login()
@@ -11,10 +13,10 @@ POST	/login   					controllers.Application.authenticate()
 
 # Profile routes - JSON-able
 GET		/user						controllers.Profiles.index()
-GET		/user/:user 				controllers.Profiles.getById(user: Long)
+GET		/user/:user 				controllers.Profiles.getByEmail(user: String)
 POST	/user/ 						controllers.Profiles.create()
-PUT		/user/:user 				controllers.Profiles.update(user: Long)
-DELETE	/user/:user 				controllers.Profiles.delete(user: Long)
+PUT		/user/:user 				controllers.Profiles.update(user: String)
+DELETE	/user/:user 				controllers.Profiles.delete(user: String)
 
 # Cheese routes - JSON-able
 GET		/cheese						controllers.Cheeses.index()
