@@ -6,27 +6,40 @@
       <div class="hero-unit">
         <h1>@message</h1>
         <p>Welcome to the site for all manufacturers of dairy products! Click any of the links in the sections below to get started if you've already logged in or click the link below to register! </p>
-        <p><a href="#" class="btn btn-primary btn-large">Register &raquo;</a></p>
+        <p><a href="#loginModal" role="button" class="btn btn-primary btn-large">Register &raquo;</a></p>
       </div>
 
       <!-- Example row of columns -->
-      <div class="row function-callout">
+      <div class="row">
         <div class="span4">
+          <div class="well well-large">
           <h2>Users</h2>
-          <p>Here you can look at your profile and browse other users' cheeses and caves (that they've made public) for inspiration and the sake of community. After all, we must
-          support our fellow manufacturers of dairy products. </p>
-          <p><a class="btn" href="@routes.Profiles.index">View details &raquo;</a></p>
+            <p>Here you can look at your profile and browse other users' cheeses and caves (that they've made public) for inspiration and the sake of community. After all, we must
+            support our fellow manufacturers of dairy products. </p>
+            <p><a class="btn btn-info" href="@routes.Profiles.index">View details &raquo;</a></p>
+          </div>
         </div>
         <div class="span4">
-          <h2>Cheeses</h2>
-          <p>Here is the heart of the application. Add your new cheeses here in all their splendid details - or relive past glories by viewing cheeses you've created! </p>
-          <p><a class="btn" href="@routes.Cheeses.index">View details &raquo;</a></p>
+          <div class="well well-large">
+            <h2>Cheeses</h2>
+            <p>Here is the heart of the application. Add your new cheeses here in all their splendid details - or relive past glories by viewing cheeses you've created! </p>
+            <p><a class="btn btn-info" href="@routes.Cheeses.index">View details &raquo;</a></p>
+          </div>
        </div>
         <div class="span4">
-          <h2>Caves</h2>
-          <p>Add or edit your cheese "caves". Not necessarily an actual cave, but wherever you choose to let your cheeses age and practice the subtle art of <em>affinage</em>. </p>
-          <p><a class="btn" href="@routes.Caves.index">View details &raquo;</a></p>
+          <div class="well well-large">
+            <h2>Caves</h2>
+            <p>Add or edit your cheese "caves". Not necessarily an actual cave, but wherever you choose to let your cheeses age and practice the subtle art of <em>affinage</em>. </p>
+            <p><a class="btn btn-info" href="@routes.Caves.index">View details &raquo;</a></p>
+          </div>
         </div>
       </div>
-    
+    <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="loginModalLabel">Modal header</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
 }

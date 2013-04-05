@@ -23,9 +23,6 @@
       	background-image: url("@routes.Assets.at("images/cave.jpg")");
         background-size: 100%;
       }
-      .function-callout {
-      	background-color: #eeeeee;
-      }
     </style>
     <link href="@routes.Assets.at("bootstrap/css/bootstrap-responsive.css")" rel="stylesheet">
 
@@ -62,7 +59,7 @@
               </li>
               }
             </ul>
-            @if(loggedIn) {
+            @if(!loggedIn) {
             <form class="navbar-form pull-right">
               <input class="span2" type="text" placeholder="Email">
               <input class="span2" type="password" placeholder="Password">
