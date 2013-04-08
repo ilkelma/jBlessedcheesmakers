@@ -6,10 +6,13 @@
 GET     /                           controllers.Application.index()
 GET 	/about						controllers.Application.about()
 GET 	/contact					controllers.Application.contact()
+GET 	/register 					controllers.Application.registration()
+POST	/register					controllers.Application.register()
 
-# Login page
+# Login/logout page
 GET		/login 						controllers.Application.login()
 POST	/login   					controllers.Application.authenticate()
+GET 	/logout						controllers.Application.logout()
 
 # Profile routes - JSON-able
 GET		/user						controllers.Profiles.index()

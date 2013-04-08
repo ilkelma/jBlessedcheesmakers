@@ -1,5 +1,16 @@
 @(title: String, loggedIn: Boolean)(content: Html)
 
+@activeTab(tab: String) = {
+  tab match {
+    case "cheeses" => "active"
+    case "caves" => "active"
+    case "users" => "active"  
+    case "about" => "active"
+    case "contacts" => "active"
+    case _ => ""
+  }
+}
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -17,10 +28,6 @@
         padding-top: 60px;
         padding-bottom: 40px;
         background-image: url("@routes.Assets.at("images/cave.jpg")");
-        background-size: 100%;
-      }
-      .hero-main-background {
-      	background-image: url("@routes.Assets.at("images/cave.jpg")");
         background-size: 100%;
       }
     </style>
@@ -68,6 +75,7 @@
            	} else {
            		<ul class="nav pull-right">
            			<li><a href="@routes.Profiles.getByEmail(session().get("email"))">@session().get("email")</a></li>
+                <li><a href="@routes.Application.logout" class="btn">Logout</a></li>
            		</ul>
            	}
           </div><!--/.nav-collapse -->

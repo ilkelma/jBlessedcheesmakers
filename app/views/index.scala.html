@@ -5,8 +5,8 @@
 	  <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="hero-unit">
         <h1>@message</h1>
-        <p>Welcome to the site for all manufacturers of dairy products! Click any of the links in the sections below to get started if you've already logged in or click the link below to register! </p>
-        <p><a href="#loginModal" role="button" class="btn btn-primary btn-large">Register &raquo;</a></p>
+        <p>Welcome to the site for all manufacturers of dairy products! Click any of the links in the sections below to see the different areas of this application</p>
+        <p><button data-remote="@routes.Application.register" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-large">Register &raquo;</button></p>
       </div>
 
       <!-- Example row of columns -->
@@ -37,7 +37,7 @@
     <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="loginModalLabel">Modal header</h3>
+        <h3 id="loginModalLabel">Sign up!</h3>
       </div>
       <div class="modal-body">
       </div>
