@@ -12,14 +12,9 @@ import views.html.*;
 import models.*;
 
 public class Application extends Controller {
-
-    public setTab() {
-        session("tab", "home");
-    }
   
     public static Result index() {
-        setTab();
-        return ok(index.render("Blessed are the Cheesemakers", 
+        return ok(index.render("Home", 
                     session("email") != null ? true : false));
     }
     
@@ -50,7 +45,7 @@ public class Application extends Controller {
      * Login page.
      */
     public static Result login() {
-        setTab();
+
         // return ok(
         //     login.render(form(Login.class))
         // );
@@ -58,14 +53,12 @@ public class Application extends Controller {
     }
 
     public static Result registration() {
-        setTab();
         return ok(
             views.html.register.render(form(Register.class))
         );
     }
 
     public static Result register() {
-        setTab();
         Form<Register> registrationForm = form(Register.class);
         Form<Register> filledForm = registrationForm.bindFromRequest();
         if(filledForm.hasErrors()) {
@@ -84,7 +77,6 @@ public class Application extends Controller {
      * Handle login form submission.
      */
     public static Result authenticate() {
-        setTab();
         // Form<Login> loginForm = form(Login.class).bindFromRequest();
         // if(loginForm.hasErrors()) {
         //     return badRequest(login.render(loginForm));
@@ -101,7 +93,6 @@ public class Application extends Controller {
      * Logout and clean the session.
      */
     public static Result logout() {
-        setTab();
         session().clear();
         flash("success", "You've been logged out");
         return redirect(
