@@ -22,8 +22,9 @@ public class Cheese extends Model {
 	public Date startDate;
 	@Formats.DateTime(pattern="dd/MM/yyyy")
 	public Date finishDate;
-	public String agingTime;
 
+	@Constraints.Required
+	public boolean visible;
 
 	@OneToOne
 	public Cave cave;
@@ -42,6 +43,10 @@ public class Cheese extends Model {
 
 	public Cheese(String name) {
 		this.name = name;
+	}
+
+	public String calculateAgingTime() {
+		return "NYI";
 	}
 
 }

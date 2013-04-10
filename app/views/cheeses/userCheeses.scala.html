@@ -1,0 +1,13 @@
+@(page: String, cheeses: List[Cheese], user: User)
+
+@main(page) {
+	<div class="well">
+		<h3>@user.name 's Cheeses:</h3>
+	</div>
+	<ul>
+	@for(cheese <- cheeses) {
+		@views.html.cheeses.cheese(cheese)
+	}
+	</ul>	
+
+}

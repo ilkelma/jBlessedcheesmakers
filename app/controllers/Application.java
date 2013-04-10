@@ -14,8 +14,7 @@ import models.*;
 public class Application extends Controller {
   
     public static Result index() {
-        return ok(index.render("Home", 
-                    session("email") != null ? true : false));
+        return ok(index.render("Home"));
     }
     
     public static class Login {
@@ -101,11 +100,11 @@ public class Application extends Controller {
     }
     
     public static Result about() {
-        return new Results.Todo();
+        return ok(about.render("About"));
     }
 
     public static Result contact() {
-        return new Results.Todo();
+        return ok(contact.render("Contact"));
     }
   
 }

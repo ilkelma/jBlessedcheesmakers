@@ -44,6 +44,7 @@ cheeses:
         id:             11
         name:           First Queso Blanco
         finished:       true
+        visible:        true
         startDate:      2012-11-23
         user:           *me
         cheeseStyle:    Queso Blanco
@@ -54,6 +55,7 @@ cheeses:
         id:             12
         name:           February Feta
         finished:       true
+        visible:        false
         startDate:      2013-02-05
         finishDate:     2013-03-01
         cave:           *mecave1
@@ -66,9 +68,9 @@ cheeses:
     - !!models.Cheese
         id:             13
         name:           Parmiggiano
+        visible:        true
         finished:       false
         startDate:      2013-01-23
-        agingTime:      1 Year
         cave:           *bobcave
         user:           *bob
         cheeseStyle:    Parmesan
@@ -80,8 +82,8 @@ cheeses:
         id:             19
         name:           Five Year Gruyère
         finished:       false
+        visible:        true
         startDate:      2010-11-23
-        agingTime:      Five Years
         cave:           *bobcave
         user:           *bob
         cheeseStyle:    Gruyère
@@ -93,6 +95,7 @@ cheeses:
         id:             55
         name:           Groovy Goat
         finished:       true
+        visible:        false
         startDate:      2013-03-23
         cave:           *mecave2
         user:           *me

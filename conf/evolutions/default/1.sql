@@ -16,7 +16,7 @@ create table cheese (
   finished                  boolean,
   start_date                timestamp,
   finish_date               timestamp,
-  aging_time                varchar(255),
+  visible                   boolean,
   cave_id                   bigint,
   user_email                varchar(255),
   cheese_style              varchar(255),

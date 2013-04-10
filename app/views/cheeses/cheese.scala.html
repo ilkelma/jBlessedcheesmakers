@@ -1,0 +1,18 @@
+@(cheese: Cheese)
+
+<li class="span3">
+    <div class="thumbnail">
+      <img data-src="holder.js/300x200" alt="@cheese.name">
+      <h3>@cheese.name</h3>
+      @if(cheese.cave != None) {
+      <p><b>Cave:</b> @cheese.cave.name</p>
+      }
+      <p><b>Style:</b> @cheese.cheeseStyle</p>
+      <p><b>Milk Type:</b> @cheese.milkType</p>
+      @if(cheese.finished) {
+      <p><b>Started:</b> @cheese.startDate</p>
+      } else {
+      <p><b>Finished:</b> @cheese.finishDate</p>
+      }
+    </div>
+  </li>

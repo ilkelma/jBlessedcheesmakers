@@ -5,6 +5,7 @@ import play.libs.*;
 import play.libs.Json;
 import org.codehaus.jackson.*;
 import play.mvc.*;
+import java.util.*;
 
 import views.html.*;
 import models.*;
@@ -12,7 +13,18 @@ import models.*;
 public class Cheeses extends Controller {
   
     public static Result index() {
-        return ok("Cheese Index!");
+        // If the user is logged in, then display their cheeses
+        // TODO: make it so that the two lists of cheeeses can be viewed while logged in
+        if(session("email") != null) {
+            List<Cheese> cheeses = 
+                    Cheese.find.where().eq("user.id", session("email")).findList();
+            User user = User.find.byId(session("email"));
+            return ok(views.html.cheeses.userCheeses.render("Cheeses", cheeses, user));
+        } else {
+            List<Cheese> cheeses = 
+                    Cheese.find.where().eq("visible", true).findList();
+            return ok(views.html.cheeses.publicCheeses.render("Cheeses", cheeses));
+        }
     }
 
     public static Result getById(Long cheese) {
