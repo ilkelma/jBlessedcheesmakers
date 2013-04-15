@@ -1,11 +1,11 @@
 @(cheese: Cheese)
 
 <li class="span3">
-    <div class="thumbnail">
+    <div class="thumbnail well cheese">
       <img data-src="holder.js/300x200" alt="@cheese.name">
       <h3>@cheese.name</h3>
-      @if(cheese.cave != None) {
-      <p><b>Cave:</b> @cheese.cave.name</p>
+      @if(cheese.getCave() != null) {
+      <p><b>Cave:</b> @cheese.getCave().getName()</p>
       }
       <p><b>Style:</b> @cheese.cheeseStyle</p>
       <p><b>Milk Type:</b> @cheese.milkType</p>

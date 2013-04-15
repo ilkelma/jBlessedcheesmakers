@@ -76,16 +76,14 @@ public class Application extends Controller {
      * Handle login form submission.
      */
     public static Result authenticate() {
-        // Form<Login> loginForm = form(Login.class).bindFromRequest();
-        // if(loginForm.hasErrors()) {
-        //     return badRequest(login.render(loginForm));
-        // } else {
-        //     session("email", loginForm.get().email);
-        //     return redirect(
-        //         routes.Application.index()
-        //     );
-        // }
-        return new Results.Todo();
+        // Change this around to do a modal popup instead of login from navbar
+        Form<Login> loginForm = form(Login.class).bindFromRequest();
+        if(loginForm.hasErrors()) {
+            return badRequest(index.render(loginForm.email + " " + loginForm.password));
+        } else {
+            session("email", loginForm.get().email);
+            return redirect(routes.Application.index());
+        }
     }
 
     /**

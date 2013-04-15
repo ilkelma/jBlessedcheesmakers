@@ -17,13 +17,13 @@ public class Cheeses extends Controller {
         // TODO: make it so that the two lists of cheeeses can be viewed while logged in
         if(session("email") != null) {
             List<Cheese> cheeses = 
-                    Cheese.find.where().eq("user.id", session("email")).findList();
+                    Cheese.find.where().eq("user.email", session("email")).findList();
             User user = User.find.byId(session("email"));
-            return ok(views.html.cheeses.userCheeses.render("Cheeses", cheeses, user));
+            return ok(views.html.cheeses.cheeseIndex.render("Cheeses", cheeses, user));
         } else {
             List<Cheese> cheeses = 
                     Cheese.find.where().eq("visible", true).findList();
-            return ok(views.html.cheeses.publicCheeses.render("Cheeses", cheeses));
+            return ok(views.html.cheeses.cheeseIndex.render("Cheeses", cheeses, null));
         }
     }
 

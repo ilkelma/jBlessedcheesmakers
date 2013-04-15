@@ -6,13 +6,15 @@
       <div class="hero-unit">
         <h1>@Messages("app.name")</h1>
         <p>Welcome to the site for all manufacturers of dairy products! Click any of the links in the sections below to see the different areas of this application</p>
+        @if(!session().get("email")) {
         <p><button data-remote="@routes.Application.register" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-large">Register &raquo;</button></p>
+        }
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
         <div class="span4">
-          <div class="well well-large">
+          <div class="well well-large index-info-box">
           <h2>Users</h2>
             <p>Here you can look at your profile and browse other users' cheeses and caves (that they've made public) for inspiration and the sake of community. After all, we must
             support our fellow manufacturers of dairy products. </p>
@@ -20,14 +22,14 @@
           </div>
         </div>
         <div class="span4">
-          <div class="well well-large">
+          <div class="well well-large index-info-box">
             <h2>Cheeses</h2>
             <p>Here is the heart of the application. Add your new cheeses here in all their splendid details - or relive past glories by viewing cheeses you've created! </p>
             <p><a class="btn btn-info" href="@routes.Cheeses.index">View details &raquo;</a></p>
           </div>
        </div>
         <div class="span4">
-          <div class="well well-large">
+          <div class="well well-large index-info-box">
             <h2>Caves</h2>
             <p>Add or edit your cheese "caves". Not necessarily an actual cave, but wherever you choose to let your cheeses age and practice the subtle art of <em>affinage</em>. </p>
             <p><a class="btn btn-info" href="@routes.Caves.index">View details &raquo;</a></p>

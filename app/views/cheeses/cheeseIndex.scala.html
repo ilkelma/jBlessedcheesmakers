@@ -1,0 +1,21 @@
+@(page: String, allCheeses: List[Cheese], user: User)
+
+@main(page) {
+	<div class="page-header well well-small">
+		<h1>
+			@if(user != null) { @user.name's} else { Public } Cheeses
+			<span class="pull-right">
+				<a class="btn btn-primary" href="#">Add Cheese...</a>
+			</span>
+		</h1>
+	</div>
+	@for(cheeses <- allCheeses.grouped(4).toList) {
+	<div class="row">
+		<ul>
+		@for(cheese <- cheeses) {
+			@views.html.cheeses.cheese(cheese)
+		}
+		</ul>	
+	</div>
+	}
+}
