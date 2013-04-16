@@ -57,19 +57,23 @@
               </li>
               }
             </ul>
+            <ul class="navbar-form pull-right">
             @if(!session().get("email")) {
-            @helper.form(action = routes.Application.authenticate(), 
-              'class -> "navbar-form pull-right") {
-              <input name="email" class="span2" type="text" placeholder="Email">
-              <input name="password" class="span2" type="password" placeholder="Password">
-              <button type="submit" class="btn">Sign in</button>
-            }
+              <li>
+                <button data-remote="@routes.Application.login" data-toggle="modal"
+                        data-target="#loginModal" class="btn">
+                  Sign in
+                </button>
+              </li>
            	} else {
-           		<ul class="navbar-form pull-right">
-           			<li><a href="@routes.Profiles.getByEmail(session().get("email"))">@session().get("email")</a></li>
-                <li><a href="@routes.Application.logout" class="btn">Logout</a></li>
-           		</ul>
+         			<li>
+                <a href="@routes.Profiles.getByEmail(session().get("email"))">
+                  @session().get("email")
+                </a>
+              </li>
+              <li><a href="@routes.Application.logout" class="btn">Logout</a></li>
            	}
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -86,6 +90,15 @@
       </footer>
 
     </div> <!-- /container -->
+    <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" 
+          aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="loginModalLabel">Sign up!</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
 
     <!-- Le javascript
     ================================================== -->

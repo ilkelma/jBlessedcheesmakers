@@ -44,17 +44,11 @@ public class Application extends Controller {
      * Login page.
      */
     public static Result login() {
-
-        // return ok(
-        //     login.render(form(Login.class))
-        // );
-        return new Results.Todo();
+        return ok(login.render(form(Login.class)));
     }
 
     public static Result registration() {
-        return ok(
-            views.html.register.render(form(Register.class))
-        );
+        return ok(register.render(form(Register.class)));
     }
 
     public static Result register() {
@@ -79,7 +73,7 @@ public class Application extends Controller {
         // Change this around to do a modal popup instead of login from navbar
         Form<Login> loginForm = form(Login.class).bindFromRequest();
         if(loginForm.hasErrors()) {
-            return badRequest(index.render(loginForm.email + " " + loginForm.password));
+            return badRequest(login.render(loginForm));
         } else {
             session("email", loginForm.get().email);
             return redirect(routes.Application.index());

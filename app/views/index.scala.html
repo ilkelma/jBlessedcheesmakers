@@ -7,7 +7,8 @@
         <h1>@Messages("app.name")</h1>
         <p>Welcome to the site for all manufacturers of dairy products! Click any of the links in the sections below to see the different areas of this application</p>
         @if(!session().get("email")) {
-        <p><button data-remote="@routes.Application.register" data-toggle="modal" data-target="#loginModal" class="btn btn-primary btn-large">Register &raquo;</button></p>
+        <p><button data-remote="@routes.Application.register" data-toggle="modal" 
+        data-target="#registerModal" class="btn btn-primary btn-large">Register &raquo;</button></p>
         }
       </div>
 
@@ -36,10 +37,10 @@
           </div>
         </div>
       </div>
-    <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div id="registerModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="loginModalLabel">Sign up!</h3>
+        <h3 id="registerModalLabel">Sign up!</h3>
       </div>
       <div class="modal-body">
       </div>
