@@ -10,12 +10,10 @@
 		</h1>
 	</div>
 	@for(cheeses <- allCheeses.grouped(4).toList) {
-	<div class="row">
-		<ul>
+	<ul class="row">
 		@for(cheese <- cheeses) {
 			@views.html.cheeses.cheese(cheese)
 		}
-		</ul>	
-	</div>
+	</ul>
 	}
 }

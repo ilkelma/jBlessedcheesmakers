@@ -1,5 +1,10 @@
 @(form: Form[Application.Login])
-@helper.form(routes.Application.authenticate) {
+
+@main("Login") {
+@views.html.components.pageHeader("Sign in here!")
+<div class="row">
+	<div class="span3 offset4 well" id="login-container">
+	@helper.form(routes.Application.authenticate, 'id -> "login-form") {
 		@if(form.hasGlobalErrors) {
 			<p class="error">
 				@form.globalError.message
@@ -12,6 +17,11 @@
 			<input type="password" name="password" placeholder="Password">
 		</p>
 		<p>
-			<button class="btn btn-primary" type="submit">Sign in</button>
+			<button class="btn btn-primary login-button pull-right" id="sign-in-button" type="submit">
+				Sign in
+			</button>
 		</p> 
 	}
+	</div>
+</div>
+}

@@ -1,5 +1,10 @@
 @(form: Form[Application.Register])
-@helper.form(routes.Application.register) {
+
+@main("Register") {
+@views.html.components.pageHeader("Sign up here!")
+<div class="row">
+	<div class="span3 offset4 well" id="register-container">
+	@helper.form(routes.Application.register) {
 		@if(form.hasGlobalErrors) {
 			<p class="error">
 				@form.globalError.message
@@ -15,6 +20,9 @@
 			<input type="password" name="password" placeholder="Password">
 		</p>
 		<p>
-			<button class="btn btn-primary" type="submit">Sign Up</button>
+			<button class="btn btn-primary pull-right" id="sign-up-button" type="submit">Sign Up</button>
 		</p> 
 	}
+	</div>
+</div>
+}

@@ -2,6 +2,7 @@ package models;
 
 import java.util.*;
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
 
 import play.db.ebean.*;
 import play.data.format.*;
@@ -47,6 +48,27 @@ public class Cheese extends Model {
 
 	public String calculateAgingTime() {
 		return "NYI";
+	}
+
+	public boolean caveExists() {
+		return this.cave != null ? true : false;
+	}
+
+	public Cave pullInCave() {
+		return this.cave;
+	}
+
+	public String formatDate(String dateToFormat) {
+		Date theDate;
+		SimpleDateFormat format = new SimpleDateFormat("MMM dd, yyyy");
+		if(dateToFormat == "startDate") {
+			theDate = this.startDate;
+		} else if(dateToFormat == "finishDate") {
+			theDate = this.finishDate;
+		} else {
+			return "invalid option";
+		}
+		return theDate.toString();
 	}
 
 }

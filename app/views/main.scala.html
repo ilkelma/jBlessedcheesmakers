@@ -10,16 +10,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
+    <!-- Les styles -->
     <link href="@routes.Assets.at("bootstrap/css/bootstrap.css")" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-        background-image: url("@routes.Assets.at("images/cave.jpg")");
-        background-size: 100%;
-      }
-    </style>
+    <link href="@routes.Assets.at("stylesheets/main.css")" rel="stylesheet">
     <link href="@routes.Assets.at("bootstrap/css/bootstrap-responsive.css")" 
               rel="stylesheet">
     <link href="@routes.Assets.at("/images/favicon.ico")" rel="shortcut icon">
@@ -35,35 +28,26 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="brand" href="@routes.Application.index">B@@C</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li @if(page == "Home"){ class="active" }><a href="@routes.Application.index">Home</a></li>
-              <li @if(page == "About"){ class="active" }><a href="@routes.Application.about">About</a></li>
-              <li @if(page == "Contact"){ class="active" }><a href="@routes.Application.contact">Contact</a></li>
-              @if(session().get("email")) {
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="@routes.Profiles.index">Users</a></li>
-                  <li><a href="@routes.Cheeses.index">Cheeses</a></li>
-                  <li><a href="@routes.Caves.index">Caves</a></li>
-                </ul>
-              </li>
-              }
+              <li @if(page == "Users"){ class="active" }><a href="@routes.Profiles.index">Users</a></li>
+              <li @if(page == "Cheeses" ){ class="active" }><a href="@routes.Cheeses.index">Cheeses</a></li>
+              <li @if(page == "Caves"){ class="active" }><a href="@routes.Caves.index">Caves</a></li>
             </ul>
-            <ul class="navbar-form pull-right">
+            <ul class="nav pull-right">
             @if(!session().get("email")) {
-              <li>
-                <button data-remote="@routes.Application.login" data-toggle="modal"
-                        data-target="#loginModal" class="btn">
+              <li @if(page == "Login"){ class="active" }>
+                <a href="@routes.Application.login">
                   Sign in
-                </button>
+                </a>
+              </li>
+              <li><a href="#">/</a></li>
+              <li @if(page == "Register"){ class="active" }>
+                <a href="@routes.Application.register">
+                  Sign up
+                </a>
               </li>
            	} else {
          			<li>
@@ -71,7 +55,7 @@
                   @session().get("email")
                 </a>
               </li>
-              <li><a href="@routes.Application.logout" class="btn">Logout</a></li>
+              <li><a href="@routes.Application.logout">Logout</a></li>
            	}
             </ul>
           </div><!--/.nav-collapse -->
@@ -86,19 +70,18 @@
       <hr>
 
       <footer class="well well-small">
-        <p>&copy; Kcina.net 2013</p>
+        <p>
+        @defining(new Date()) { now =>
+          &copy; Kcina.net @now.format("yyyy")
+        }
+          <span class="pull-right">
+            <a href="@routes.Application.about">About</a>
+            <a href="@routes.Application.contact">Contact</a>
+          </span>
+        </p>
       </footer>
 
     </div> <!-- /container -->
-    <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" 
-          aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="loginModalLabel">Sign up!</h3>
-      </div>
-      <div class="modal-body">
-      </div>
-    </div>
 
     <!-- Le javascript
     ================================================== -->
@@ -107,5 +90,6 @@
     <script src="@routes.Assets.at("bootstrap/js/bootstrap.js")"></script>
     <script src="@routes.Assets.at("javascripts/utils.js")"></script>
     <script src="@routes.Assets.at("javascripts/init-utils.js")"></script>
+    <script type="text/javascript" src='@routes.Application.javascriptRoutes()'></script>
   </body>
 </html>

@@ -1,0 +1,18 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  background-image: url("../images/cave.jpg");
+  background-size: 100%;
+}
+
+#sign-in-button, #sign-up-button {
+  margin-right: 45px;
+}
+
+#login-container, #register-container {
+  padding-right: 0px;
+}
+
+footer span.pull-right a {
+  padding-right: 10px;
+}
