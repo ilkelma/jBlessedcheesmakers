@@ -6,11 +6,41 @@ import play.libs.Json;
 import org.codehaus.jackson.*;
 import play.mvc.*;
 import java.util.*;
+import play.data.validation.Constraints.*;
+
+import static play.data.Form.*;
 
 import views.html.*;
 import models.*;
 
 public class Cheeses extends Controller {
+
+    public static class AddCheese {
+
+        @Required
+        public String name;
+        @Required
+        public boolean finished;
+        public Date startDate;
+        public Date finishDate;
+        @Required
+        public boolean visible;
+        public Long cave;
+        @Required
+        public String cheeseStyle;
+        public String recipeSource;
+        public String coagulant;
+        public String inoculant;
+        @Required
+        public String milkType;
+        public String image;
+
+        // public Map<String, List<ValidationError>> validate() {
+        //     Map<String, List<ValidationError>> map = new HashMap<String, List<ValidationError>>();
+        //     if()
+        //     return map;
+        // }
+    }
   
     public static Result index() {
         // If the user is logged in, then display their cheeses
@@ -39,6 +69,12 @@ public class Cheeses extends Controller {
         } else {
             return badRequest("Sorry sir, we're out of that cheese (Monty Python)");
         }
+    }
+
+    public static Result addCheese() {
+        return ok(views.html.cheeses.newCheese.render("Add Cheese", form(AddCheese.class),
+                    CheeseStyle.find.all(), MilkType.find.all(),
+                    Cave.find.where().eq("owner.email", session("email")).findList()));
     }
 
     public static Result create() {

@@ -43,17 +43,20 @@ cheeses:
     - !!models.Cheese
         id:             11
         name:           First Queso Blanco
+        image:          queso_blanco.jpg
         finished:       true
         visible:        true
         startDate:      2012-11-23
         user:           *me
         cheeseStyle:    Queso Blanco
+        milkType:       Cow
         recipeSource:   Cheeselady Book
         coagulant:      Vinegar
 
     - !!models.Cheese
         id:             12
         name:           February Feta
+        image:          Feta_Cheese.jpg
         finished:       true
         visible:        false
         startDate:      2013-02-05
@@ -61,6 +64,7 @@ cheeses:
         cave:           *mecave1
         user:           *me
         cheeseStyle:    Feta
+        milkType:       Sheep
         recipeSource:   Cheeselady Book
         coagulant:      Vegetable Rennet
         inoculant:      Mesophilic
@@ -68,12 +72,14 @@ cheeses:
     - !!models.Cheese
         id:             13
         name:           Parmiggiano
+        image:          Parmesan_cheese.jpg
         visible:        true
         finished:       false
         startDate:      2013-01-23
         cave:           *bobcave
         user:           *bob
         cheeseStyle:    Parmesan
+        milkType:       Cow
         recipeSource:   Cheeselady Book
         coagulant:      Calf Rennet
         inoculant:      Thermophilic
@@ -81,12 +87,14 @@ cheeses:
     - !!models.Cheese
         id:             19
         name:           Five Year Gruyère
+        image:          Gruyère.jpg
         finished:       false
         visible:        true
         startDate:      2010-11-23
         cave:           *bobcave
         user:           *bob
         cheeseStyle:    Gruyère
+        milkType:       Cow
         recipeSource:   Cheeselady Book
         coagulant:      Vinegar
         inoculant:      Thermophilic
@@ -94,12 +102,122 @@ cheeses:
     - !!models.Cheese
         id:             55
         name:           Groovy Goat
+        image:          goat_cheese.JPG
         finished:       true
         visible:        false
         startDate:      2013-03-23
         cave:           *mecave2
         user:           *me
         cheeseStyle:    Chèvre
+        milkType:       Goat
         recipeSource:   Cheeselady Book
         coagulant:      Microbial Rennet
         inoculant:      Mesophilic
+
+    - !!models.Cheese
+        id:             56
+        name:           Buffalo!
+        image:          Mozzarella.jpg
+        finished:       true
+        visible:        false
+        startDate:      2013-03-23
+        finishDate:     2013-03-25
+        cave:           *mecave2
+        user:           *me
+        cheeseStyle:    Mozzarella
+        milkType:       Buffalo
+        recipeSource:   Cheeselady Book
+        coagulant:      Microbial Rennet
+        inoculant:      Mesophilic
+
+    - !!models.Cheese
+        id:             57
+        name:           So Goooda
+        image:          gouda.JPG
+        finished:       false
+        visible:        true
+        startDate:      2013-03-23
+        finishDate:     2013-05-25
+        cave:           *mecave2
+        user:           *me
+        cheeseStyle:    Gouda
+        milkType:       Cow
+        recipeSource:   Cheeselady Book
+        coagulant:      Microbial Rennet
+        inoculant:      Mesophilic
+
+# Milk Types
+
+milkTypes:
+
+    - !!models.MilkType
+        id:             10
+        milkType:       Cow
+        image:          cow.png
+
+    - !!models.MilkType
+        id:             11
+        milkType:       Goat
+        image:          goat.png
+
+    - !!models.MilkType
+        id:             12
+        milkType:       Sheep
+        image:          sheep.png
+
+    - !!models.MilkType
+        id:             13
+        milkType:       Buffalo
+        image:          buffalo.png
+
+# Cheese Styles
+
+cheeseStyles:
+
+    - !!models.CheeseStyle
+        id:             10
+        cheeseStyle:    Gouda
+
+    - !!models.CheeseStyle
+        id:             11
+        cheeseStyle:    Cheddar
+
+    - !!models.CheeseStyle
+        id:             12
+        cheeseStyle:    Parmesan
+
+    - !!models.CheeseStyle
+        id:             13
+        cheeseStyle:    Gruyère
+
+    - !!models.CheeseStyle
+        id:             14
+        cheeseStyle:    Chèvre
+
+    - !!models.CheeseStyle
+        id:             15
+        cheeseStyle:    Feta
+
+    - !!models.CheeseStyle
+        id:             16
+        cheeseStyle:    Mozzarella
+
+    - !!models.CheeseStyle
+        id:             17
+        cheeseStyle:    Comté
+
+    - !!models.CheeseStyle
+        id:             18
+        cheeseStyle:    Blue Cheese
+
+    - !!models.CheeseStyle
+        id:             19
+        cheeseStyle:    Stilton
+
+    - !!models.CheeseStyle
+        id:             20
+        cheeseStyle:    Wensleydale
+
+    - !!models.CheeseStyle
+        id:             21
+        cheeseStyle:    Queso Blanco

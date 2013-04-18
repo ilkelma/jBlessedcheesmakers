@@ -1,0 +1,77 @@
+@(page: String, form: Form[Cheeses.AddCheese], cheeseStyles: List[CheeseStyle], milkTypes: List[MilkType], caves: List[Cave])
+
+@main(page) {
+	@views.html.components.pageHeader(page)
+	<div class="row">
+	<div class="well span6 offset3">
+		@helper.form(routes.Cheeses.create, 'id -> "create-cheese-form", 'class -> "form-horizontal") {
+		@if(form.hasGlobalErrors) {
+		<p class="error">
+			@form.globalError.message
+		</p>
+		}
+		<div class="control-group">
+		    <label class="control-label" for="name">Name</label>
+		    <div class="controls">
+		      <input type="text" name="name" id="name" placeholder="i.e. Nevah Beddah Cheddah">
+		    </div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="finished-group">Finished:</label>
+			<div class="controls btn-group radio-form-adjust" id="finished-group" data-toggle="buttons-radio">
+				<button id="finished-true" type="button" class="btn btn-primary" 	name="finished" value="true" 
+				title="This cheese is a finished product, no more aging necessary!">Yes</button>
+				<button id="finished-false" type="button" class="btn btn-primary" name="finished" value="false" 
+				title="This cheese isn't yet done, maybe aging, maybe pressing...">No</button>
+			</div>
+		</div>
+		@defining(new Date()) { now =>
+		<div class="control-group">
+		    <label class="control-label" for="startDate">Start Date:</label>
+		    <div class="controls">
+		      <input type="text" name="startDate" id="startDate" data-date-format="mm/dd/yyyy" class="date-picker" value="@now.format("MM/dd/yyyy")">
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="finishDate">Finish Date:</label>
+		    <div class="controls">
+		      <input type="text" name="finishDate" id="finishDate" data-date-format="mm/dd/yyyy" class="date-picker" value="@now.format("MM/dd/yyyy")">
+		    </div>
+		</div>
+		}
+		<div class="control-group">
+			<label class="control-label" for="visible-group">Visibility:</label>
+			<div class="controls btn-group radio-form-adjust" id="visible-group" data-toggle="buttons-radio">
+				<button id="visible-true" type="button" class="btn btn-primary" name="visible" value="true" 
+				title="This cheese will be visible on the public cheeses page.">Public</button>
+				<button id="visible-false" type="button" class="btn btn-primary" name="visible" value="false" 
+				title="This cheese only appears on my page, visible only to me.">Private</button>
+			</div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="cave">Cave:</label>
+		    <div class="controls">
+		      <select name="cave" id="cave" data-placeholder="Select a Cave...">
+		      	<option value=""></option>
+		      	<option value="0">No Cave</option>
+		      	@for(cave <- caves) {
+		      		<option value="@cave.id">@cave.name</option>
+		      	}
+		      </select>
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="cheeseStyle">Cheese Style:</label>
+		    <div class="controls">
+		      <select name="cheeseStyle" id="cheeseStyle" data-placeholder="Select a Cheese Style...">
+		      	<option value=""></option>
+		      	@for(style <- cheeseStyles) {
+		      		<option value="@style.id">@style.cheeseStyle</option>
+		      	}
+		      </select>
+		    </div>
+		</div>
+	}
+	</div>
+	</div>
+}

@@ -24,7 +24,21 @@ create table cheese (
   coagulant                 varchar(255),
   inoculant                 varchar(255),
   milk_type                 varchar(255),
+  image                     varchar(255),
   constraint pk_cheese primary key (id))
+;
+
+create table cheese_style (
+  id                        bigint not null,
+  cheese_style              varchar(255),
+  constraint pk_cheese_style primary key (id))
+;
+
+create table milk_type (
+  id                        bigint not null,
+  milk_type                 varchar(255),
+  image                     varchar(255),
+  constraint pk_milk_type primary key (id))
 ;
 
 create table user (
@@ -37,6 +51,10 @@ create table user (
 create sequence cave_seq;
 
 create sequence cheese_seq;
+
+create sequence cheese_style_seq;
+
+create sequence milk_type_seq;
 
 create sequence user_seq;
 
@@ -57,6 +75,10 @@ drop table if exists cave;
 
 drop table if exists cheese;
 
+drop table if exists cheese_style;
+
+drop table if exists milk_type;
+
 drop table if exists user;
 
 SET REFERENTIAL_INTEGRITY TRUE;
@@ -64,6 +86,10 @@ SET REFERENTIAL_INTEGRITY TRUE;
 drop sequence if exists cave_seq;
 
 drop sequence if exists cheese_seq;
+
+drop sequence if exists cheese_style_seq;
+
+drop sequence if exists milk_type_seq;
 
 drop sequence if exists user_seq;
 

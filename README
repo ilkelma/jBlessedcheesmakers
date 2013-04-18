@@ -2,3 +2,12 @@ This is your new Play 2.1 application
 =====================================
 
 This file will be packaged with your application, when using `play dist`.
+
+Image Credits (Licenses indicated on the original links, partially CC license
+=============
+cave.jpg -> http://www.publicdomainpictures.net/view-image.php?image=11635&picture=cheese-factory
+goat_cheese.jpg -> http://commons.wikimedia.org/wiki/File:Goat_cheese_with_thymus.JPG
+Feta_Cheese.jpg -> http://commons.wikimedia.org/wiki/File:Feta_Cheese.jpg
+queso_blanco.jpg -> http://commons.wikimedia.org/wiki/File:Queso_Fresco_Mexicano.jpg
+blue_cheese.jpg -> http://commons.wikimedia.org/wiki/File:Blauschimmelk%C3%A4se_IMGP5469_wp.jpg
+Mozzarella.jpg -> http://commons.wikimedia.org/wiki/File:Mozzarella.jpg

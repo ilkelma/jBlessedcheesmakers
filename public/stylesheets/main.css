@@ -16,3 +16,7 @@ body {
 footer span.pull-right a {
   padding-right: 10px;
 }
+
+.radio-form-adjust {
+  display: block;
+}

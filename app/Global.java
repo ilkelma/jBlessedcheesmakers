@@ -14,6 +14,8 @@ public class Global extends GlobalSettings {
 			Ebean.save(all.get("users"));
 			Ebean.save(all.get("caves"));
 			Ebean.save(all.get("cheeses"));
+			Ebean.save(all.get("milkTypes"));
+			Ebean.save(all.get("cheeseStyles"));
 
 		}
 	}

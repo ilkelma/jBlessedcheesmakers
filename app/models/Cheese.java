@@ -38,6 +38,7 @@ public class Cheese extends Model {
 	public String coagulant;
 	public String inoculant;
 	public String milkType;
+	public String image;
 
 	public static Finder<Long,Cheese> find = 
 			new Finder<Long,Cheese>(Long.class, Cheese.class);

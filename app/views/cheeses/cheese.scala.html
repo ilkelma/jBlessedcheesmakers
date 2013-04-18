@@ -1,11 +1,15 @@
 @(cheese: Cheese)
 
 <li class="span3">
-    <div class="thumbnail well cheese">
-      <img data-src="holder.js/300x200" alt="@cheese.name">
+    <div class="well cheese">
+      <a href="#" class="thumbnail">
+      <img data-src="holder.js/200x200" alt="@cheese.name" src="@routes.Assets.at("images/uploads/"+cheese.image)">
+      </a>
       <h3>@cheese.name</h3>
       @if(cheese.caveExists()) {
-      <p><b>Cave:</b> @cheese.pullInCave().name</p>
+      <p><b>Cave:</b> <a href="@routes.Caves.getById(cheese.pullInCave().id)">@cheese.pullInCave().name</a></p>
+      } else {
+      <p><b>Cave:</b> <em>None</em></p>
       }
       <p><b>Style:</b> @cheese.cheeseStyle</p>
       <p><b>Milk Type:</b> @cheese.milkType</p>

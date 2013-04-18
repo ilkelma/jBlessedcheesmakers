@@ -24,7 +24,8 @@ DELETE	/user/:user 				controllers.Profiles.delete(user: String)
 # Cheese routes - JSON-able
 GET		/cheese						controllers.Cheeses.index()
 GET		/cheese/:cheese 			controllers.Cheeses.getById(cheese: Long)
-POST	/cheese/	 				controllers.Cheeses.create()
+GET 	/newcheese					controllers.Cheeses.addCheese()
+POST	/cheese/new	 				controllers.Cheeses.create()
 PUT		/cheese/:cheese 			controllers.Cheeses.update(cheese: Long)
 DELETE	/cheese/:cheese 			controllers.Cheeses.delete(cheese: Long)
 
