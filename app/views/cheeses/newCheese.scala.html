@@ -71,6 +71,34 @@
 		      </select>
 		    </div>
 		</div>
+		<div class="control-group">
+		    <label class="control-label" for="recipeSource">Recipe Source:</label>
+		    <div class="controls">
+		      <input type="text" name="recipeSource" id="recipeSource" placeholder="i.e. Artisan Cheesemaking at Home" title="Could be a URL, a book name, however you want to remember where you got the recipe!">
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="name">Coagulant</label>
+		    <div class="controls">
+		      <input type="text" name="coagulant" id="coagulant" placeholder="i.e. Microbial Rennet or Vinegar" title="The substance you used to curdle the milk">
+		    </div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="inoculant">Name</label>
+		    <div class="controls">
+		      <input type="text" name="inoculant" id="inoculant" placeholder="i.e. Mesophilic or MA-4001" title="The culture used to inoculate the milk and begin the cheesemaking process.">
+		    </div>
+		</div>
+		<div class="control-group">
+		<label class="control-label" for="milk-types">Type of Milk:</label>
+		    <div class="controls" id="milk-types">
+		    @for(milk <- milkTypes) {
+		    <label class="radio">
+		      <input type="radio" name="milkType" id="milkType-@milk.milkType" value="@milk.id"><img src="@routes.Assets.at("/images/"+milk.image)">@milk.milkType's milk
+		    </label>
+		    }
+		    </div>
+		</div>
 	}
 	</div>
 	</div>

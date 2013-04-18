@@ -1,4 +1,4 @@
 $(function () {
-	$(".cheese").boxFixer();
+	//$(".cheese").boxFixer();
 	$(".index-info-box").boxFixer();
 });
