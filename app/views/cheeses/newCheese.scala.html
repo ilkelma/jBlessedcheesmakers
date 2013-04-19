@@ -66,7 +66,7 @@
 		      <select name="cheeseStyle" id="cheeseStyle" data-placeholder="Select a Cheese Style...">
 		      	<option value=""></option>
 		      	@for(style <- cheeseStyles) {
-		      		<option value="@style.id">@style.cheeseStyle</option>
+		      		<option value="@style.cheeseStyle">@style.cheeseStyle</option>
 		      	}
 		      </select>
 		    </div>
@@ -94,10 +94,16 @@
 		    <div class="controls" id="milk-types">
 		    @for(milk <- milkTypes) {
 		    <label class="radio inline">
-		      <input type="radio" name="milkType" id="milkType-@milk.milkType" value="@milk.id"><img src="@routes.Assets.at("/images/"+milk.image)">@milk.milkType's milk
+		      <input type="radio" name="milkType" id="milkType-@milk.milkType" value="@milk.milkType"><img src="@routes.Assets.at("/images/"+milk.image)">@milk.milkType's milk
 		    </label>
 		    }
 		    </div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="image">Image file:</label>
+			<div class="controls" id="image">
+				<input type="file" name="image" title="Not required, a default will be used if you don't upload an image!">
+			</div>
 		</div>
 		<div class="form-actions">
 			<button type="submit" class="btn btn-primary">Save New Cheese</button>
